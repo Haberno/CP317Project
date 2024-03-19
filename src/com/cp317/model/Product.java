@@ -10,6 +10,14 @@ public class Product {
 
 
     public Product(int productId, String productName, double price, int quantity, String status, int supplierId) {
+        
+        if (productId < 0) throw new IllegalArgumentException("Product ID must be non-negative");
+        if (productName == null || productName.trim().isEmpty()) throw new IllegalArgumentException("Product name cannot be null or empty");
+        if (price < 0) throw new IllegalArgumentException("Price must be non-negative");
+        if (quantity < 0) throw new IllegalArgumentException("Quantity must be non-negative");
+        if (status == null || status.trim().isEmpty()) throw new IllegalArgumentException("Status cannot be null or empty");
+        if (supplierId < 0) throw new IllegalArgumentException("Supplier ID must be non-negative");
+
         this.productId = productId;
         this.productName = productName;
         this.price = price;
